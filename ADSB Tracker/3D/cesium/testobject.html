@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Include the CesiumJS JavaScript and CSS files -->
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    // Your access token can be found at: https://cesium.com/ion/tokens.
+    // This is the default access token from your ion account
+
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmZmNkNjRiZS1hOTkzLTRmNDYtOTM2Mi1iMTFiN2ZmOTk1NzAiLCJpZCI6NjAzMTEsImlhdCI6MTYyNDk3NjYyMX0.UAa42undAhoI0-5rRI83UHZD0L_t9PndA7YpwJBLA6o';
+	
+
+var viewer = new Cesium.Viewer('cesiumContainer');
+var position = Cesium.Cartesian3.fromDegrees(-123.0744619, 44.0503706);
+var heading = Cesium.Math.toRadians(45.0);
+var pitch = Cesium.Math.toRadians(15.0);
+var roll = Cesium.Math.toRadians(0.0);
+var orientation = Cesium.Transforms.headingPitchRollQuaternion(position, new Cesium.HeadingPitchRoll(heading, pitch, roll));
+
+var entity = viewer.entities.add({
+    position : position,
+    orientation : orientation,
+    model: { uri: airplaneUri },
+});
+viewer.trackedEntity = entity;
+  </script>
+ </div>
+</body>
+</html>
