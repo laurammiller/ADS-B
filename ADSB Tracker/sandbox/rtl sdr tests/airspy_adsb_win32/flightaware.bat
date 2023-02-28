@@ -1,0 +1,1 @@
+start airspy_adsb -m 20 -e 20 -w 5 -l 30005:beast -c localhost:30104:beast

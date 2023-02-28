@@ -1,0 +1,1 @@
+start airspy_adsb -v -e 20 -w 5 -m 20 -l 47806:asavr
